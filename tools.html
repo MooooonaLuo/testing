@@ -87,34 +87,36 @@
 
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="data.js"></script>
 	<script type="text/javascript">
-		var  color = [];
 		var m = "1";
 		var i;
-		var colorTest = localStorage.getItem('colorData');
-		if(colorTest===null){
+		var colorTest = JSON.parse(localStorage.getItem('colorData'));
+		if(colorTest==null){
+			console.log('initializing colorData');
+			color = [];
 			for(i = 0; i < 16; i++){
 				color[i] = m;
-				console.log("empty");
 			}
+			// localStorage.setItem('colorData', JSON.stringify(color));
 		} else {
 			color = colorTest;
-			console.log("not empty");
-			localStorage.clear();
-		}
-
-		
-		$(document).ready(function(){
-			for(i = 0; i < color.length; i++){
-				var p = i+1;
-				var q = p.toString();
-				if(color[i] === "1"){
-					$("#tool"+q).css('background', 'grey');
-				} else if(color[i] === "2") {
-					$("#tool"+q).css('background', '#86b332');
+			$(document).ready(function(){
+				console.log('showing selected items');
+				for(i = 0; i < color.length; i++){
+					var p = i+1;
+					var q = p.toString();
+					if(p<10){
+						q = "0"+p.toString();
+					}
+					if(color[i] === "1"){
+						$("#tool"+q).css('background', 'grey');
+					} else if(color[i] === "2") {
+						$("#tool"+q).css('background', '#86b332');
+					}
 				}
-			}
-		});
+			});
+		}
 	
 
 		$(document).ready(function(){
@@ -136,9 +138,12 @@
 		        			color[Number(number)] = "1";
 		    			}
 		    				console.log(color);
-		    				localStorage.colorData = color;
+		    				localStorage.colorData = JSON.stringify(color);
+		    			
 				});
 		});
+
+
 
 	</script>
 </head>

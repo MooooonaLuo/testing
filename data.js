@@ -24,6 +24,7 @@ function searching(input){
     }
   }
   return result;
+  console.log(result);
 }
 
 function output_recipe(input)
