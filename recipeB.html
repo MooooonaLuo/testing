@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Generic Recipe Placeholder</title>
+    <meta charset="utf-8">
+    <style>
+     .login{
+        text-align: right;
+        margin-bottom: 80px;
+        margin-top: 30px;
+      }
+    .login button{
+        font-size: 30px;
+      }
+      h1{
+        margin-top: 50px;
+        font-family: arial;
+        font-size: 50px;
+      }
+      div.buttons{
+        text-align: center;
+      }
+
+      .nav{
+          height: 130px;
+          /*background: red;*/
+          margin:auto;
+          background: #eee;
+          position: fixed;
+          top: auto;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          }
+        .nav div{
+          width: 150px;
+          height: 50px;
+          float: left;
+        }
+        .next{
+          margin-left: 700px;
+        }
+        .nav div p{
+          text-align: center;
+          font-size: 40px;
+          font-family: arial;
+        }
+        a{
+          text-decoration: none;
+          color: black;
+        }
+        textarea{
+          font-size: 20px;
+        }
+        button{
+          font-size: 30px;
+          float: right;
+        }
+    </style>
+    
+  </head>
+
+  <body>
+    <div class="login">
+      <a href="login.html"><button type="button">Log in</button></a>&nbsp;
+      <a href="signup.html"><button type="button">Sign up</button></a>
+    </div>
+    
+    <div>
+        <h1><center>Generic Recipe Placeholder</center><h1>
+    </div>
+    <img src="image/beef_stew.jpg" alt="egg image" width=103%>
+    <div class="mainpage" id="signs">
+        <button type="button" onclick="alert('Please Log In before you check the favorite.')">Favorite This!</button>
+    </div>
+    <textarea name="Ingredients" rows="4" cols="80">
+        Ingredients:
+        1 pound Beef
+        2 Tomatoes
+        1 Egg
+    </textarea>
+    <textarea name="Directions" rows="4" cols="80">
+        Directions having to do with eggs
+    </textarea>
+    <div class="nav">
+        <div class="back">
+          <a href="resultsB.html">
+            <p>Back</p>
+          </a>
+        </div>  
+    </div>
+  </body>
+</html>

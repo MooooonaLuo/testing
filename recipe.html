@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Generic Recipe Placeholder</title>
+    <meta charset="utf-8">
+    <style>
+     .account{
+      width: 1000px;
+      height: 150px;
+      /*background: red;*/
+      margin:30px auto;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: auto;
+      background: white;
+      }
+      .account img{
+        float: right;
+        margin-right: 20px;
+      }
+      h1{
+        margin-top: 200px;
+        font-family: arial;
+        font-size: 50px;
+        font-weight: normal;
+      }
+      div.buttons{
+        text-align: center;
+      }
+
+      .nav{
+          height: 130px;
+          /*background: red;*/
+          margin:auto;
+          background: #eee;
+          position: fixed;
+          top: auto;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          }
+        .nav div{
+          width: 150px;
+          height: 50px;
+          float: left;
+        }
+        .next{
+          margin-left: 700px;
+        }
+        .nav div p{
+          text-align: center;
+          font-size: 40px;
+          font-family: arial;
+        }
+        .home{
+          margin-left: 280px;
+        }
+        a{
+          text-decoration: none;
+          color: black;
+        }
+        textarea{
+          font-size: 20px;
+        }
+        button{
+          font-size: 30px;
+          float: right;
+        }
+        .like{
+          margin-top: 20px;
+          margin-left: 20px;
+        }
+        #likeBt{
+          width: 100px;
+          height: 100px;
+          background: url('image/like.png');
+          background-repeat: no-repeat;
+          background-position: center center;
+          border: none;
+        }
+        .detail p{
+          font-size: 12px;
+          font-family: arial;
+          margin-left: 50px;
+        }
+        .detail{
+          margin-bottom: 150px;
+        }
+        button[type="button"]{outline: none;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="account">
+          <a href="account.html"><img src="image/account.png" width="15%"></a>
+    </div>
+        <!-- Title of Recipe -->
+        <h1 ><center>Generic Recipe Placeholder</center></h1>
+    <!-- picture of recipe -->
+    <div><img src="image/beef_stew.jpg" alt="egg image" width=103%s></div>
+    <!-- "like" button -->
+    <div class="like">
+        <button id="likeBt" type="button" ></button>
+    </div>
+    <!-- function of "like" button -->
+    <script type="text/javascript">
+        var m = 1;
+        $(document).ready(function(){
+          $("#likeBt").click(function(){
+    
+              if(m===1){
+                  $(this).css('background', "url('image/liked.png')");
+                  $(this).css('background-repeat','no-repeat');
+                  $(this).css('background-position','center center');
+                  m=2;
+              }else if(m===2){
+                  $(this).css('background', "url('image/like.png')");
+                  $(this).css('background-repeat','no-repeat');
+                  $(this).css('background-position','center center');
+                  m=1;
+              }
+          });
+        });
+
+    </script>
+  <div class="detail">
+    <p><br/>Ingredients:</p>
+    <!-- ingredient list -->
+    <p class="ingre">
+        1 pound Beef <br/>
+        2 Tomatoes <br/>
+        1 Egg
+        
+    </p>
+    <p><br/><br/>Instructions:</p>
+    <p>
+        Step 1: <br/>Chop the beef and put them in boiling water for 2 minutes <br/><br/>
+        Step 2: <br/>Put one spoon of soy sauce in a fry pan <br/><br/>
+        Step 3: <br/>Put beef into the fry pan and stir them for 5 minutes
+    </p>
+  </div>
+    <div class="nav">
+        <div class="back">
+          <a href="results.html">
+            <p>Back</p>
+          </a>
+        </div> 
+        <div class="home">
+          <a href="home.html">
+            <p>Home</p>
+          </a>
+        </div>  
+    </div>
+  </body>
+</html>

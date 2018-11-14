@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	<title>tools</title>
+	<style type="text/css">
+		.account{
+			width: 1000px;
+			height: 150px;
+			/*background: red;*/
+			margin:30px auto;
+		}
+		.account img{
+			float: right;
+			margin-right: 20px;
+		}
+		h1{
+			text-align: center;
+			font-size: 50px;
+			font-family: arial;
+		}
+		.title{
+			width: 1000px;
+			height: 60px;
+		}
+		.content{
+			width: 900px;
+			height: 1330px;
+			padding-left: 50px;
+			padding-right: 50px;
+			margin:auto;
+			/*background: grey;*/
+		}
+		.content div{
+			width: 150px;
+			height: 200px;
+			margin-top: 100px;
+			background: grey;
+			margin-left: 60px;
+			float: left;
+		}
+		.content p{
+			color: white;
+			text-align: center;
+			font-size: 20px;
+		}
+		.nav{
+			height: 130px;
+			/*background: red;*/
+			margin:auto;
+			background: #eee;
+			position: fixed;
+	      	top: auto;
+	      	right: 0;
+	      	left: 0;
+	      	bottom: 0;
+		}
+		.nav div{
+			width: 150px;
+			height: 50px;
+			float: left;
+			/*margin-top: 20px;*/
+			/*background: rgb(200,200,200);*/
+		}
+		.next{
+			margin-left: 260px;
+		}
+		.nav div p{
+			text-align: center;
+			font-size: 40px;
+		}
+		.home{
+          margin-left: 280px;
+        }
+		a{
+			text-decoration: none;
+			color: black;
+		}
+		p{
+			font-family: arial;
+		}
+		.content img{
+			margin-left: 40px;
+			margin-top: 40px;
+		}
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var  color = [];
+		var m = "1";
+		var i;
+		var colorTest = localStorage.getItem('colorData');
+		if(colorTest===null){
+			for(i = 0; i < 16; i++){
+				color[i] = m;
+				console.log("empty");
+			}
+		} else {
+			color = colorTest;
+			console.log("not empty");
+			localStorage.clear();
+		}
+
+		
+		$(document).ready(function(){
+			for(i = 0; i < color.length; i++){
+				var p = i+1;
+				var q = p.toString();
+				if(color[i] === "1"){
+					$("#tool"+q).css('background', 'grey');
+				} else if(color[i] === "2") {
+					$("#tool"+q).css('background', '#86b332');
+				}
+			}
+		});
+	
+
+		$(document).ready(function(){
+				$(".content div").click(function(){
+		    			  
+		    			var id = $(this).attr('id');
+		    			var idNumber = id.substr(4,5);
+		    			var number = Number(idNumber)-1;
+
+		    			console.log(id);
+		    			console.log(number);
+
+
+		    			if(color[Number(number)]=="1"){
+		        			$(this).css('background', '#86b332');
+		        			color[Number(number)] = "2";
+		    			} else if(color[Number(number)]=="2"){
+		        			$(this).css('background', 'grey');
+		        			color[Number(number)] = "1";
+		    			}
+		    				console.log(color);
+		    				localStorage.colorData = color;
+				});
+		});
+
+	</script>
+</head>
+<body>
+	<div class="account">
+			<a href="account.html"><img src="image/account.png" width="15%"></a>
+	</div>
+	<div class="title">
+		<h1>Tools I Have</h1>
+	</div>
+	<div class="content">
+		<div id="tool01"><img src="image/stove.png"><p>Stove</p></div>
+		<div id="tool02"><img src="image/micro.png"><p>Oven</p></div>
+		<div id="tool03"><img src="image/blender.png"><p>Blender</p></div>
+		<div id="tool04"><img src="image/pressure.png"><p>Rice&nbsp;Cooker</p></div>
+		<div id="tool05"><img src="image/steamer.png"><p>Steamer</p></div>
+		<div id="tool06"><img src="image/micro.png"><p>Microwave</p></div>
+		<div id="tool07"><img src="image/pressure.png"><p>Pressure<br />Cooker</p></div>
+		<div id="tool08"><img src="image/knives.png"><p>Knife</p></div>
+		<div id="tool09"><img src="image/cleaver.png"><p>Cutting&nbsp;Board</p></div>
+		<div id="tool10"><img src="image/frying-pan.png"><p>Fry&nbsp;Pan</p></div>
+		<div id="tool11"><img src="image/pot.png"><p>Pot</p></div>
+		<div id="tool12"><img src="image/scale.png"><p>Scale</p></div>
+		<div id="tool13"><img src="image/measuring-cup.png"><p>Measuring&nbsp;Cup</p></div>
+		<div id="tool14"><img src="image/mixer.png"><p>Mixer</p></div>
+		<div id="tool15"><img src="image/strainer.png"><p>Strainer</p></div>
+		<div id="tool16"><img src="image/measuring-spoons.png"><p>Measuring<br />Spoons</p></div>	
+	</div>
+	<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+	<div>Icons made by <a href="https://www.flaticon.com/authors/catkuro" title="catkuro">catkuro</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+	<div class="nav">
+		<div class="back">
+			<a href="ingredient.html">
+				<p>Back</p>
+			</a>
+		</div>
+		<div class="home">
+          <a href="home.html">
+            <p>Home</p>
+          </a>
+      </div> 
+		<div class="next">
+			<a href="results.html">
+				<p>Next</p>
+			</a>
+		</div>
+	</div>
+	
+</body>
+</html>
+

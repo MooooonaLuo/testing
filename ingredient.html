@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+  .account{
+      width: 1000px;
+      height: 150px;
+      /*background: red;*/
+      margin:30px auto;
+    }
+    .account img{
+      float: right;
+      margin-right: 20px;
+    }
+  * {
+      box-sizing: border-box;
+  }
+
+  ul {
+      margin: 0;
+      padding: 0;
+      width: 1000px;
+      height: 1130px;
+  }
+
+  ul li {
+      cursor: pointer;
+      position: relative;
+      padding: 20px 8px 15px 40px;
+      background: #eee;
+      font-size: 40px;
+      font-family: arial;
+      transition: 0.2s;
+      /*margin-top: 20px;*/
+  }
+
+  ul li:nth-child(odd) {
+      background: #f9f9f9;
+  }
+
+  .close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 12px 16px 12px 16px;
+  }
+
+  .close:hover {
+      background-color: #86b332;
+      color: white;
+  }
+
+  .header {
+      width: 1000px;
+      height: 300px;
+      background-color: #86b332;
+      padding: 30px 40px;
+      color: black;
+      text-align: center;
+  }
+
+  input {
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      width: 75%;
+      padding: 10px;
+      float: left;
+      font-size: 40px;
+      font-family: arial;
+  }
+
+  .addBtn {
+      padding: 10px;
+      width: 25%;
+      background: #d9d9d9;
+      color: #555;
+      float: left;
+      text-align: center;
+      font-size: 40px;
+      font-family: arial;
+      cursor: pointer;
+      transition: 0.3s;
+      border-radius: 0;
+  }
+
+  .nav{
+  		height: 130px;
+  		/*background: red;*/
+  		margin:auto;
+  		background: #eee;
+  		position: fixed;
+      top: auto;
+      right: 0;
+      left: 0;
+      bottom: 0;
+  		}
+		.nav div{
+			width: 150px;
+			height: 50px;
+			float: left;
+		}
+		.next{
+			margin-left: 260px;
+		}
+		.nav div p{
+			text-align: center;
+			font-size: 40px;
+      font-family: arial;
+		}
+    .home{
+          margin-left: 280px;
+        }
+		a{
+			text-decoration: none;
+			color: black;
+		}
+		h2{
+			font-size: 50px;
+      font-family: arial;
+		}
+    h1{
+      font-family: arial;
+      font-size: 50px;
+    }
+
+
+    .autocomplete-items {
+      width: 70%;
+      position: absolute;
+      margin-left: 48px;
+      border: 1px solid #d4d4d4;
+      border-bottom: none;
+      border-top: none;
+      z-index: 99;
+      /*position the autocomplete items to be the same width as the container:*/
+      top: 450px;
+      left: 0;
+      right: 0;
+    }
+
+    .autocomplete-items div {
+      padding: 10px;
+      cursor: pointer;
+      background-color: #fff; 
+      border-bottom: 1px solid #d4d4d4; 
+      font-size: 30px;
+    }
+    .autocomplete-items div:hover {
+      /*when hovering an item:*/
+      background-color: #e9e9e9; 
+    }
+
+    .autocomplete-active {
+      /*when navigating through the items using the arrow keys:*/
+      background-color: DodgerBlue !important; 
+      color: #ffffff; 
+    }
+
+	</style>
+</head>
+<body> 
+<div id="result"></div>
+
+  <div class="account">
+			<a href="account.html"><img src="image/account.png" width="15%"></a>
+	</div>
+  <div id="myDIV" class="header">
+    <h1>Ingredients I Have</h1>
+      <form autocomplete="off" action="/action_page.php">
+        <div class="autocomplete" >
+          <input type="text" id="myInput" placeholder="e.g. Tomato" value="">
+          <span onclick="newElement()" class="addBtn">Add</span>
+        </div>
+      </form>
+  </div>
+
+
+
+  <script>
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*An array containing all the country names in the world:*/
+var countries = ["Asparagus","Avocado","Bacon","Beef","Bell Peper","Broccoli","Bamboo Shoots","Cheese","Carrot","Cabbage","Cucumber","Chicken","Corn","Cauliflower","Cilantro","Duck","Egg","Ginger","Ham","Kimchi","Kale","Lemon","Lime","Lamb","Luncheon Meat","Lobster","Lettuce","Oyster","Onion","Pickle","Pumpkin","Pork","Rice","Salmon","Tofu","Tomato","Turkey","Zuchini"];
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("myInput"), countries);
+</script>
+
+
+
+
+  <ul id="myUL">
+    <li><span class="in-name">Tomato</span></li>
+    <li><span class="in-name">Beef</span></li>
+    <li><span class="in-name">Egg</span></li>
+
+  </ul>
+   <script>
+
+   function updateLocalStorage() {
+      var myCollection = document.getElementsByClassName("in-name");
+      var i;
+      var temp = [];
+      for (i = 0; i < myCollection.length; i++) {
+        temp.push(myCollection[i].innerHTML);
+      }
+      console.log("writing to db: "  + temp);
+      localStorage.inDatabase = temp;
+   }
+
+    </script>
+  <script type="text/javascript">
+  	var myNodelist = document.getElementsByTagName("LI");
+  var i;
+  for (i = 0; i < myNodelist.length; i++) {
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    myNodelist[i].appendChild(span);
+  }
+
+  var close = document.getElementsByClassName("close");
+  var i;
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.remove();
+    }
+  }
+
+
+  function newElement() {
+    var li = document.createElement("li");
+    var span = document.createElement("span")
+    span.className = "in-name";
+    var inputValue = document.getElementById("myInput").value;
+    var t = document.createTextNode(inputValue);
+    li.appendChild(span).appendChild(t)
+    if (inputValue === '') {
+      alert("You must write something!");
+    } else {
+      document.getElementById("myUL").appendChild(li);
+    }
+    document.getElementById("myInput").value = "";
+
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    li.appendChild(span);
+
+    for (i = 0; i < close.length; i++) {
+      [i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+      }
+    }
+  }
+  </script>
+  <div class="nav">
+  		<div class="back">
+  			<a href="home.html">
+  				<p>Back</p>
+  			</a>
+  		</div>
+      <div class="home">
+          <a href="home.html">
+            <p>Home</p>
+          </a>
+      </div> 
+  		<div class="next">
+  			<a href="tools.html" onclick='updateLocalStorage();'>
+  				<p>Next</p>
+  			</a>
+  		</div>
+  	</div>
+
+   
+  </body>
+</html>

@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+  <head> 
+    <title>Your Results!</title>
+    <meta charset="utf-8">
+    <style>
+      
+    .next{
+  			margin-left: 300px;
+      }
+    .nav div{
+        width: 150px;
+        height: 50px;
+        float: left;
+      }
+    .login{
+        text-align: right;
+        margin-bottom: 80px;
+        margin-top: 30px;
+      }
+    .login button{
+        font-size: 30px;
+      }
+    .nav{
+      height: 130px;
+      /*background: red;*/
+      margin:auto;
+      background: #eee;
+      position: fixed;
+      top: auto;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      }
+    .nav div{
+      width: 150px;
+      height: 50px;
+      float: left;
+    }
+    .next{
+      margin-left: 700px;
+    }
+    .nav div p{
+      text-align: center;
+      font-size: 40px;
+      font-family: arial;
+    }
+    a{
+      text-decoration: none;
+      color: black;
+    }
+   h1{
+      text-align: center;
+      font-size: 50px;
+      font-family: arial;
+    }
+    .content p{
+      font-size: 40px;
+      font-family: arial;
+    }
+    ul{
+      list-style: none;
+  
+    }
+    li{
+      padding: 3px 15px 3px 20px;
+      margin-top: 10px;
+      background: #eee
+    }
+    .content{
+      margin-top: 50px;
+    }
+    </style>
+  </head>
+  <body>
+   <div class="login">
+      <a href="signup.html"><button type="button">Sign up</button></a>&nbsp;
+      <a href="login.html"><button type="button">Log in</button></a>
+    </div>
+    <h1><center>Your Results</center></h1>
+    <div class="content">
+      <ul>
+        <li><a href="recipeB.html"><p>Recipe1</p><p id="result"></p></a></li>
+        <!-- <li><a href="recipeB.html"><p>Recipe2</p></a></li>
+        <li><a href="recipeB.html"><p>Recipe3</p></a></li> -->
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+  document.getElementById("result").innerHTML = localStorage.getItem("in1")+"+"+localStorage.getItem("in2")+"+"+localStorage.getItem("in3");
+  </script>
+
+    <div class="nav">
+      <div class="back">
+        <a href="toolsB.html">
+          <p>Back</p>
+        </a>
+      </div>  
+    </div>
+    <div id="data"></div>
+  </body>
+</html>

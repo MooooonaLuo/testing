@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  h1{
+    margin-top: 40px;
+    font-family: arial;
+    font-size: 50px
+  }
+  .login{
+    width: 1000px;
+    height: 150px;
+    text-align: right;
+    margin-bottom: 50px;
+  }
+  .login p{
+    font-size: 30px;
+    text-align: center;
+  }
+  #loginBt{
+    margin-right: 60px;
+  }
+  .title{
+    width: 1000px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  div .buttons{
+    text-align: center;
+    font-size: 30px;
+  }
+  
+   .title{
+    margin-top: 300px;
+    margin-bottom: 100px;
+  }
+  .main{
+    font-size: 40px;
+    margin-top: 50px;
+  }
+
+  </style>
+  <title>Recipe Generation</title>
+  <meta charset="utf-8">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  
+</head>
+
+<body>
+  <div>
+    <div class="login">
+      <a href="signup.html"><button type="button"><p>Sign up</p></button></a>
+      <a href="login.html"><button type="button" id="loginBt"><p>Log in</p></button></a>
+    </div>
+    <div class="title">
+      <h1><center>Recipe Generation</center><h1>
+    </div>
+    <div class="buttons" id="ingredient">
+      <a href="ingredientB.html"><button class="main" type="button">Find Recipe</button></a>
+    </div>
+    <br/>
+    <div class="buttons" id="favorites">
+    <button class="main" type="button" onclick="alert('Please Log In before you check the favorite.')">Favorite</button>
+    </div>
+  </div>
+</body>
+</html>

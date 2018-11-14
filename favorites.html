@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+  .account{
+      width: 1000px;
+      height: 150px;
+      /*background: red;*/
+      margin:30px auto;
+    }
+    .account img{
+      float: right;
+      margin-right: 20px;
+    }
+    .nav{
+      width: 1000px;
+      height: 130px;
+      /*background: red;*/
+      margin:auto;
+      background: #eee;
+      position: fixed;
+      top: auto;
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
+    .nav div{
+      width: 150px;
+      height: 50px;
+      float: left;
+      /*margin-top: 20px;*/
+      /*background: rgb(200,200,200);*/
+    }
+    h1{
+      font-size: 60px;
+      font-family: arial;
+    }
+    .content{
+      width: 1000px;
+      height: 1150px;
+    }
+    li{
+      background: #eee;
+      width: 900px;
+      list-style: none;
+      font-family: arial;
+    }
+    ul{
+      padding: 10px;
+      font-size: 50px;
+    }
+      .nav div p{
+        text-align: center;
+        font-size: 40px;
+      }
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      p{
+        font-family: arial;
+      }
+  </style>
+</head>
+<body>
+  <div class="account">
+      <a href="account.html"><img src="image/account.png" width="15%"></a>
+  </div>
+
+  <br>
+  <h1><center>Favorite<center></h1>
+  <br><br><br><br>
+  <div class="content">
+    <ul>
+      <li><a href="recipe.html">First Recipe</a></li>
+    </ul>
+  </div>
+  <div class="nav">
+    <div class="back">
+      <a href="javascript:history.back()">
+        <p>Back</p>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
