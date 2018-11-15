@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	<script type="text/javascript" src="data.js"></script>
 	<meta charset="UTF-8">
 	<title>tools</title>
 	<style type="text/css">
@@ -87,7 +87,7 @@
 
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="data.js"></script>
+	
 	<script type="text/javascript">
 		var m = "1";
 		var i;
@@ -155,25 +155,26 @@
 		<h1>Tools I Have</h1>
 	</div>
 	<div class="content">
-		<div id="tool01"><img src="image/stove.png"><p>Stove</p></div>
-		<div id="tool02"><img src="image/micro.png"><p>Oven</p></div>
-		<div id="tool03"><img src="image/blender.png"><p>Blender</p></div>
-		<div id="tool04"><img src="image/pressure.png"><p>Rice&nbsp;Cooker</p></div>
-		<div id="tool05"><img src="image/steamer.png"><p>Steamer</p></div>
-		<div id="tool06"><img src="image/micro.png"><p>Microwave</p></div>
-		<div id="tool07"><img src="image/pressure.png"><p>Pressure<br />Cooker</p></div>
-		<div id="tool08"><img src="image/knives.png"><p>Knife</p></div>
-		<div id="tool09"><img src="image/cleaver.png"><p>Cutting&nbsp;Board</p></div>
-		<div id="tool10"><img src="image/frying-pan.png"><p>Fry&nbsp;Pan</p></div>
-		<div id="tool11"><img src="image/pot.png"><p>Pot</p></div>
-		<div id="tool12"><img src="image/scale.png"><p>Scale</p></div>
-		<div id="tool13"><img src="image/measuring-cup.png"><p>Measuring&nbsp;Cup</p></div>
-		<div id="tool14"><img src="image/mixer.png"><p>Mixer</p></div>
-		<div id="tool15"><img src="image/strainer.png"><p>Strainer</p></div>
-		<div id="tool16"><img src="image/measuring-spoons.png"><p>Measuring<br />Spoons</p></div>	
+		<div id="tool01"><img src="image/stove.png"><p id="1">Stove</p></div>
+		<div id="tool02"><img src="image/micro.png"><p id="2">Oven</p></div>
+		<div id="tool03"><img src="image/blender.png"><p id="3">Blender</p></div>
+		<div id="tool04"><img src="image/pressure.png"><p id="4">Rice Cooker</p></div>
+		<div id="tool05"><img src="image/steamer.png"><p id="5">Steamer</p></div>
+		<div id="tool06"><img src="image/micro.png"><p id="6">Microwave</p></div>
+		<div id="tool07"><img src="image/pressure.png"><p id="7">Pressure Cooker</p></div>
+		<div id="tool08"><img src="image/knives.png"><p id="8">Knife</p></div>
+		<div id="tool09"><img src="image/cleaver.png"><p id="9">Cutting Board</p></div>
+		<div id="tool10"><img src="image/frying-pan.png"><p id="10">Fry Pan</p></div>
+		<div id="tool11"><img src="image/pot.png"><p id="11">Pot</p></div>
+		<div id="tool12"><img src="image/scale.png"><p id="12">Scale</p></div>
+		<div id="tool13"><img src="image/measuring-cup.png"><p id="13">Measuring Cup</p></div>
+		<div id="tool14"><img src="image/mixer.png"><p id="14">Mixer</p></div>
+		<div id="tool15"><img src="image/strainer.png"><p id="15">Strainer</p></div>
+		<div id="tool16"><img src="image/measuring-spoons.png"><p id="16">Measuring Spoons</p></div>	
 	</div>
 	<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 	<div>Icons made by <a href="https://www.flaticon.com/authors/catkuro" title="catkuro">catkuro</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
 	<div class="nav">
 		<div class="back">
 			<a href="ingredient.html">
@@ -186,11 +187,26 @@
           </a>
       </div> 
 		<div class="next">
-			<a href="results.html">
+			<a href="results.html" onclick="output_recipe(search_r);getTools()">
 				<p>Next</p>
 			</a>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function getTools() {
+			var tools = JSON.parse(localStorage.getItem('colorData'));
+			var toolSelect = [];
+			for(var i=0; i<tools.length; i++){
+				if(tools[i]==="2"){
+					var p = i+1;
+					var q = p.toString();
+					var t = document.getElementById(q).innerHTML;
+					toolSelect.push(t);
+				}
+			}
+			localStorage.toolInput = JSON.stringify(toolSelect);
+		}
+	</script>
 	
 </body>
 </html>
