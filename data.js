@@ -45,35 +45,33 @@ var data = [
             {
               if(data[x].ingredient[y] === input[z])
               {
-                continue;
-              }
-              else
-              {
                 flag += 1;
+                continue;
               }
             }
           }
-          if(flag > 0)
+          if(flag === data[x].ingredient.length)
           {
+            result.push(data[x].title);
             continue;
           }
           else
           {
-            result.push(data[x].title);
+            continue;
           }
         }
       }
       return result;
   }
   function output_recipe(input)
-  { 
+  {
     var result =[];
     for (var i = 0; i < input.length; i++)
     {
       for (var j = 0; j < data.length; j++)
       {
         if (input[i] == data[j]["title"]) {
-          
+
           var output = data[j];
           result.push(output);
 
@@ -81,7 +79,7 @@ var data = [
           for(var ingre = 0; ingre < output["ingredient"].length; ingre++)
           {
             console.log(output["ingredient"][ingre]);
-            
+
           }
           for(var direc = 0; direc < output["directions"].length; direc++)
           {
@@ -94,14 +92,10 @@ var data = [
     return result;
   }
 
-   
-          
+
+
 
   var in_db = localStorage.getItem("inDatabase");
   var in_db_array = in_db.split(",");
   var search_r = searching(in_db_array);
   var allRecipe = output_recipe(search_r);
- 
-  
-
-
