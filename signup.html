@@ -3,20 +3,24 @@
 <head>
   <style>
   h1{
-    margin-top: 200px;
+    margin-top: 400px;
     text-align: center;
     font-size: 60px;
+    font-family: arial;
+    color: #86b332;
+    font-weight: normal;
   }
-    form{
+     form{
       text-align: center;
       font-size: 50px;
       margin-top: 100px;
     }
-    input .name{
-      font-size: 50px;
+   p{
+      font-size: 30px;
+      font-family: arial;
     }
     input[type=text]{
-       font-size: 50px;
+      font-size: 50px;
       border: 2px solid #ccc;
     }
     button{
@@ -34,7 +38,7 @@
       height: 130px;
       /*background: red;*/
       margin:auto;
-      background: #eee;
+      background: white;
       position: fixed;
       top: auto;
       right: 0;
@@ -54,6 +58,26 @@
       font-size: 40px;
       font-family: arial;
     }
+    input[type=text]{
+      border-radius: 15px;
+    }
+     input[type=Password]{
+      border-radius: 15px;
+      font-size: 50px;
+      border: 2px solid #ccc;
+    }
+    em{
+      color: #86b332;
+      font-style: normal;
+    }
+    button[type=button]{
+      height: 70px;
+      width: 150px;
+      background-color: #86b332;
+      color: white;
+      border: #86b332;
+      border-radius: 15px;
+    }
   </style>
 </head>
 
@@ -65,7 +89,7 @@
     <input type="text" value="">
     <br>
     <p> Password:</p>
-    <input type="text" value="">
+    <input type="Password" value="">
     <br>
   
   <div class="signup"></div>
@@ -75,7 +99,7 @@
    <div class="nav">
       <div class="back">
         <a href="project.html">
-          <p>Back</p>
+          <p><img src="image/back.png" width="70px"></p>
         </a>
       </div>
   </div>

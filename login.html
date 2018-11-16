@@ -3,10 +3,12 @@
 <head>
   <style>
   h1{
-    margin-top: 200px;
+    margin-top: 400px;
     text-align: center;
     font-size: 60px;
     font-family: arial;
+    color: #86b332;
+    font-weight: normal;
   }
     form{
       text-align: center;
@@ -17,10 +19,7 @@
       font-size: 30px;
       font-family: arial;
     }
-    input[type=text]{
-      font-size: 50px;
-      border: 2px solid #ccc;
-    }
+   
     button{
       font-size: 40px;
     }
@@ -35,7 +34,7 @@
       height: 130px;
       /*background: red;*/
       margin:auto;
-      background: #eee;
+      background: white;
       position: fixed;
       top: auto;
       right: 0;
@@ -55,30 +54,53 @@
       font-size: 40px;
       font-family: arial;
     }
-    
+    input[type=text]{
+      border-radius: 15px;
+      font-size: 50px;
+      border: 2px solid #ccc;
+    }
+
+     input[type=Password]{
+      border-radius: 15px;
+      font-size: 50px;
+      border: 2px solid #ccc;
+    }
+    em{
+      color: #86b332;
+      font-style: normal;
+    }
+    button[type=button]{
+      height: 70px;
+      width: 130px;
+      background-color: #86b332;
+      color: white;
+      border: #86b332;
+      border-radius: 15px;
+    }
   </style>
 </head>
 <body>
-  <h1>Log in</h1>
+  <h1>Log In</h1>
   <form>
    <br>
-    <p>Username</p>
+    <p class="title">Username</p>
     <input type="text" value="">
     <br>
-    <p> Password:</p>
-    <input type="text" value="">
-    <br>
-  <a href="signup.html"><p>Sign up to create a new acount</p></a>
+    <p class="title"> Password:</p>
+    <input type="Password" value="">
+    <br/>
+    <br/>
+  <a href="signup.html"><p>Don't have an account? <em>Sign up here.</em></p></a>
   <div class="login">
     
-    <br />
-    <a href="home.html"><button type="button">login</button></a>
+    <br/>
+    <a href="home.html"><button type="button">log&nbsp;in</button></a>
   </div>
   </form>
  <div class="nav">
       <div class="back">
         <a href="project.html">
-          <p>Back</p>
+          <p><img src="image/back.png" width="70px"></p>
         </a>
       </div>
   </div>
