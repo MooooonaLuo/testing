@@ -11,7 +11,6 @@ var data = [
   {"image" : "Beer Lime Grilled Chicken.jpg", "title" : "Braised Balsamic Chicken", "ingredient" : ["chicken breast halves", "garlic salt", "ground black pepper", "olive oil", "onion", "tomato", "balsamic vinegar", "basil", "oregano", "rosemary", "thyme"], "directions" : ["Season both sides of chicken breasts with garlic salt and pepper.", "Heat olive oil in a skillet over medium heat; cook seasoned chicken breasts until chicken is browned, 3 to 4 minutes per side. Add onion; cook and stir until onion is browned, 3 to 4 minutes.", "Pour diced tomatoes and balsamic vinegar over chicken; season with basil, oregano, rosemary and thyme. Simmer until chicken is no longer pink and the juices run clear, about 15 minutes. An instant-read thermometer inserted into the center should read at least 165 degrees F (74 degrees C)."], "nutrition" : "Per Serving: 196 calories; 7 g fat; 7.6 g carbohydrates; 23.8 g protein; 61 mg cholesterol; 511 mg sodium."},
   {"image" : "Fluffy French Toast.jpg", "title" : "Fluffy French Toast", "ingredient" : ["all-purpose flour", "milk", "salt", "egg", "ground cinamon", "vanilla extract", "white sugar", "bread"], "directions" : ["Measure flour into a large mixing bowl. Slowly whisk in the milk. Whisk in the salt, eggs, cinnamon, vanilla extract and sugar until smooth.", "Heat a lightly oiled griddle or frying pan over medium heat.", "Soak bread slices in mixture until saturated. Cook bread on each side until golden brown. Serve hot."], "nutrition" : "Per Serving: 123 calories; 2.7 g fat; 19.4 g carbohydrates; 4.8 g protein; 48 mg cholesterol; 230 mg sodium."}
 ]
-<<<<<<< HEAD
   //   function searching(input){
   //   var result = new Array();
   //   for (var x = 0; x < input.length; x++){
@@ -28,8 +27,6 @@ var data = [
   //   return result;
   // }
 
-=======
->>>>>>> a961e73cb72648bb90cab83c328fe303ee821bc9
   function searching(input)
   {
       var result = new Array();
@@ -69,13 +66,8 @@ var data = [
       return result;
   }
   function output_recipe(input)
-<<<<<<< HEAD
   { 
     var result =[];
-=======
-  {
-    var result = new Array();
->>>>>>> a961e73cb72648bb90cab83c328fe303ee821bc9
     for (var i = 0; i < input.length; i++)
     {
       for (var j = 0; j < data.length; j++)
@@ -108,12 +100,8 @@ var data = [
   var in_db = localStorage.getItem("inDatabase");
   var in_db_array = in_db.split(",");
   var search_r = searching(in_db_array);
-<<<<<<< HEAD
   var allRecipe = output_recipe(search_r);
  
   
 
 
-=======
-  var ingredientLi = output_recipe(search_r);
->>>>>>> a961e73cb72648bb90cab83c328fe303ee821bc9
