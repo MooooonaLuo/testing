@@ -120,23 +120,25 @@
     </div>
     <!-- function of "like" button -->
     <script type="text/javascript">
-        var count = 1;
-        $(document).ready(function(){
-          $("#likeBt").click(function(){
+        // var count = 1;
+        // $(document).ready(function(){
+        //   $("#likeBt").click(function(){
     
-              if(count===1){
-                  $(this).css('background', "url('image/liked.png')");
-                  $(this).css('background-repeat','no-repeat');
-                  $(this).css('background-position','center center');
-                  count=2;
-              }else if(count===2){
-                  $(this).css('background', "url('image/like.png')");
-                  $(this).css('background-repeat','no-repeat');
-                  $(this).css('background-position','center center');
-                  count=1;
-              }
-          });
-        });
+        //       if(count===1){
+        //           $(this).css('background', "url('image/liked.png')");
+        //           $(this).css('background-repeat','no-repeat');
+        //           $(this).css('background-position','center center');
+        //           count=2;
+        //           localStorage.liked = 
+        //       }else if(count===2){
+        //           $(this).css('background', "url('image/like.png')");
+        //           $(this).css('background-repeat','no-repeat');
+        //           $(this).css('background-position','center center');
+        //           count=1;
+        //       }
+        //   });
+        // });
+
 
     </script>
     <div class="detail">
@@ -196,6 +198,29 @@
             document.getElementById("image").src = src;
         }
       }
+
+
+      var count = 1;
+
+        $(document).ready(function(){
+          $("#likeBt").click(function(){
+
+              if(count===1){
+                  $(this).css('background', "url('image/liked.png')");
+                  $(this).css('background-repeat','no-repeat');
+                  $(this).css('background-position','center center');
+                  count=2;
+                  localStorage.liked = title;
+              }else if(count===2){
+                  $(this).css('background', "url('image/like.png')");
+                  $(this).css('background-repeat','no-repeat');
+                  $(this).css('background-position','center center');
+                  count=1;
+                  localStorage.removeItem("liked");
+              }
+          });
+        });
+
       
     </script>
 

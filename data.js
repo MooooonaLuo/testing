@@ -9,7 +9,7 @@ var data = [
   {"image" : "Beer Lime Grilled Chicken.jpg", "title" : "Beer Lime Grilled Chicken", "ingredient" : ["lime" , "beer", "honey", "garlic", "cilantro", "salt", "pepper", "chicken breast halves"], "directions" : ["In a bowl, mix the lime juice, beer, honey, garlic, cilantro, and salt and pepper until the honey dissolves. Pour the mixture over the chicken, cover and marinate for 30 minutes.", "Preheat an outdoor grill for medium heat and lightly oil grate.", "Remove chicken from marinade and shake off excess; discard remaining marinade. Grill chicken until tender and juices run clear, about 7 minutes per side."], "nutrition" : "Per Serving: 182 calories; 2.9 g fat; 7 g carbohydrates; 25.2 g protein; 67 mg cholesterol; 63 mg sodium."},
   {"image" : "Zuchini Boats on the Grill.jpg", "title" : "Zucchini Boats on the Grill", "ingredient" : ["zucchini", "white bread", "bacon bits", "black olives", "jalapeno pepper", "green chile peppers", "onion", "tomato", "cheddar cheese", "basil", "seasoned salt", "ground black pepper"], "directions" : ["Prepare the grill for indirect heat.", "Place the zucchini in a pot with enough water to cover. Bring to a boil, and cook 5 minutes. Drain, cool, and cut in half lengthwise. Scoop out the pulp to about 1/4 inch from the skin. Chop pulp.", "In a bowl, mix the zucchini pulp, bread pieces, bacon bits, olives, jalapeno, green chile peppers, onion, tomato, and Cheddar cheese. Season with basil, seasoned salt, and pepper.", "Stuff the zucchini halves with the pulp mixture. Seal each stuffed half in aluminum foil.", "Place foil packets on the prepared grill over indirect heat. Cook 15 to 20 minutes, until tender."], "nutrition" : "Per Serving: 120 calories; 6.3 g fat; 9 g carbohydrates; 8.2 g protein; 18 mg cholesterol; 502 mg sodium."},
   {"image" : "Beer Lime Grilled Chicken.jpg", "title" : "Braised Balsamic Chicken", "ingredient" : ["chicken breast halves", "garlic salt", "ground black pepper", "olive oil", "onion", "tomato", "balsamic vinegar", "basil", "oregano", "rosemary", "thyme"], "directions" : ["Season both sides of chicken breasts with garlic salt and pepper.", "Heat olive oil in a skillet over medium heat; cook seasoned chicken breasts until chicken is browned, 3 to 4 minutes per side. Add onion; cook and stir until onion is browned, 3 to 4 minutes.", "Pour diced tomatoes and balsamic vinegar over chicken; season with basil, oregano, rosemary and thyme. Simmer until chicken is no longer pink and the juices run clear, about 15 minutes. An instant-read thermometer inserted into the center should read at least 165 degrees F (74 degrees C)."], "nutrition" : "Per Serving: 196 calories; 7 g fat; 7.6 g carbohydrates; 23.8 g protein; 61 mg cholesterol; 511 mg sodium."},
-  {"image" : "Fluffy French Toast.jpg", "title" : "Fluffy French Toast", "ingredient" : ["all-purpose flour", "milk", "salt", "egg", "ground cinamon", "vanilla extract", "white sugar", "bread"], "directions" : ["Measure flour into a large mixing bowl. Slowly whisk in the milk. Whisk in the salt, eggs, cinnamon, vanilla extract and sugar until smooth.", "Heat a lightly oiled griddle or frying pan over medium heat.", "Soak bread slices in mixture until saturated. Cook bread on each side until golden brown. Serve hot."], "nutrition" : "Per Serving: 123 calories; 2.7 g fat; 19.4 g carbohydrates; 4.8 g protein; 48 mg cholesterol; 230 mg sodium."}
+  {"image" : "Fluffy French Toast.jpg", "title" : "Fluffy French Toast", "ingredient" : ["egg", "bread"], "directions" : ["Measure flour into a large mixing bowl. Slowly whisk in the milk. Whisk in the salt, eggs, cinnamon, vanilla extract and sugar until smooth.", "Heat a lightly oiled griddle or frying pan over medium heat.", "Soak bread slices in mixture until saturated. Cook bread on each side until golden brown. Serve hot."], "nutrition" : "Per Serving: 123 calories; 2.7 g fat; 19.4 g carbohydrates; 4.8 g protein; 48 mg cholesterol; 230 mg sodium."}
 ]
  function searching(input)
  {
@@ -89,3 +89,23 @@ var data = [
   }
   var search_r = searching(inputs);
   var allRecipe = output_recipe(search_r);
+
+  function addRecipe(){
+    var number = JSON.parse(localStorage.getItem("number"));
+
+      var li = document.createElement("li");
+          
+          var a = document.createElement("a");
+          a.href = "recipe.html";
+          var inputName = search_r[number];
+          var t = document.createTextNode(inputName);
+          var p = document.createElement("p");
+          li.onclick = function(){
+            localStorage.recipeChosen = JSON.stringify(inputName);
+          }
+          p.appendChild(t);
+          li.appendChild(a).appendChild(p);
+  
+
+          document.getElementById("recipeList").appendChild(li);
+  }

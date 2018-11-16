@@ -87,26 +87,29 @@
     <ul id="recipeList">
     </ul>
     <script type="text/javascript">
-      var li = document.createElement("li");
+    var check = localStorage.getItem("liked");
+    if(!(check===null)){
+      addRecipe();
+    }
+
+    
+    // var number = JSON.parse(localStorage.getItem("number"));
+
+    //   var li = document.createElement("li");
           
-          var a = document.createElement("a");
-          a.href = "recipe.html";
-          var inputName = search_r[0];
-          var t = document.createTextNode(inputName);
-          var p = document.createElement("p");
-          li.onclick = function(){
-            localStorage.recipeChosen = JSON.stringify(inputName);
-          }
-          // var p2 = document.createElement("p");
-          // var inputIng = ingredientLi;
-          // var t2 = document.createTextNode(inputIng);
-          p.appendChild(t);
-          li.appendChild(a).appendChild(p);
-          // li.appendChild(a).appendChild(p2);
-
-
+    //       var a = document.createElement("a");
+    //       a.href = "recipe.html";
+    //       var inputName = search_r[number];
+    //       var t = document.createTextNode(inputName);
+    //       var p = document.createElement("p");
+    //       li.onclick = function(){
+    //         localStorage.recipeChosen = JSON.stringify(inputName);
+    //       }
+    //       p.appendChild(t);
+    //       li.appendChild(a).appendChild(p);
   
-          document.getElementById("recipeList").appendChild(li);
+
+    //       document.getElementById("recipeList").appendChild(li);
     </script>
   </div>
   <div class="nav">
