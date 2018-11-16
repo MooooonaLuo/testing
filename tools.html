@@ -92,7 +92,7 @@
 
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
+
 	<script type="text/javascript">
 		var m = "1";
 		var i;
@@ -137,11 +137,11 @@
 				}
 			});
 		}
-	
+
 
 		$(document).ready(function(){
 				$(".content div").click(function(){
-		    			  
+
 		    			var id = $(this).attr('id');
 		    			var idNumber = id.substr(4,5);
 		    			var number = Number(idNumber)-1;
@@ -159,7 +159,7 @@
 		    			}
 		    				console.log(color);
 		    				localStorage.colorData = JSON.stringify(color);
-		    			
+
 				});
 		});
 
@@ -190,7 +190,7 @@
 		<div id="tool13"><img src="image/measuring-cup.png"><p id="13">Measuring Cup</p></div>
 		<div id="tool14"><img src="image/mixer.png"><p id="14">Mixer</p></div>
 		<div id="tool15"><img src="image/strainer.png"><p id="15">Strainer</p></div>
-		<div id="tool16"><img src="image/measuring-spoons.png"><p id="16">Measuring Spoons</p></div>	
+		<div id="tool16"><img src="image/measuring-spoons.png"><p id="16">Measuring Spoons</p></div>
 	</div>
 
 	<div class="nav">
@@ -203,7 +203,7 @@
           <a href="home.html">
             <p><img src="image/home.png" width="80px"></p>
           </a>
-      </div> 
+      </div>
 		<div class="next">
 			<a href="results.html" onclick="output_recipe(search_r);getTools()">
 				<p><img src="image/next.png" width="70px"></p>
@@ -222,10 +222,9 @@
 					toolSelect.push(t);
 				}
 			}
-			localStorage.toolInput = JSON.stringify(toolSelect);
+			localStorage.toolInput = toolSelect;
 		}
 	</script>
-	
+
 </body>
 </html>
-
