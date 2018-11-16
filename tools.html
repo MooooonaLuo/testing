@@ -102,7 +102,11 @@
 			color = [];
 			for(i = 0; i < 16; i++){
 				color[i] = m;
-				var p = i+1;
+			}
+			$(document).ready(function(){
+				console.log('showing selected items');
+				for(i = 0; i < color.length; i++){
+					var p = i+1;
 					var q = p.toString();
 					if(p<10){
 						q = "0"+p.toString();
@@ -112,7 +116,8 @@
 					} else if(color[i] === "2") {
 						$("#tool"+q).css('background', '#86b332');
 					}
-			}
+				}
+			});
 			// localStorage.setItem('colorData', JSON.stringify(color));
 		} else {
 			color = colorTest;
