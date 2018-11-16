@@ -62,17 +62,6 @@ var data = [
           var output = data[j];
           result.push(output);
 
-          console.log(output["title"]);
-          for(var ingre = 0; ingre < output["ingredient"].length; ingre++)
-          {
-            console.log(output["ingredient"][ingre]);
-
-          }
-          for(var direc = 0; direc < output["directions"].length; direc++)
-          {
-            console.log(output["directions"][direc]);
-          }
-          console.log(output["nutrition"]);
         }
       }
     }
