@@ -5,10 +5,11 @@
   <head> 
     <title>Your Results!</title>
     <meta charset="utf-8">
+    <script type="text/javascript" src="data.js"></script>
     <style>
       
     .next{
-  			margin-left: 300px;
+        margin-left: 300px;
       }
     .nav div{
         width: 150px;
@@ -16,18 +17,18 @@
         float: left;
       }
     .login{
-        text-align: right;
-        margin-bottom: 80px;
-        margin-top: 30px;
-      }
+      text-align: right;
+      margin-bottom: 80px;
+      margin-top: 30px;
+    }
     .login button{
-        font-size: 30px;
-      }
+      font-size: 30px;
+    }
     .nav{
       height: 130px;
       /*background: red;*/
       margin:auto;
-      background: #eee;
+      background: white;
       position: fixed;
       top: auto;
       right: 0;
@@ -47,6 +48,9 @@
       font-size: 40px;
       font-family: arial;
     }
+    .home{
+          margin-left: 280px;
+        }
     a{
       text-decoration: none;
       color: black;
@@ -57,7 +61,7 @@
       font-family: arial;
     }
     .content p{
-      font-size: 40px;
+      font-size: 25px;
       font-family: arial;
     }
     ul{
@@ -67,36 +71,102 @@
     li{
       padding: 3px 15px 3px 20px;
       margin-top: 10px;
-      background: #eee
+      background: #eee;
     }
     .content{
       margin-top: 50px;
     }
+    #result{
+      font-size: 30px;
+    }
+    #warning{
+      font-size: 40px;
+      text-align: center;
+      margin-top: 100px;
+    }
+
     </style>
   </head>
   <body>
-   <div class="login">
-      <a href="signup.html"><button type="button">Sign up</button></a>&nbsp;
-      <a href="login.html"><button type="button">Log in</button></a>
+    <div class="login">
+        <a href="signup.html"><button type="button">Sign up</button></a>&nbsp;
+        <a href="login.html"><button type="button">Log in</button></a>
     </div>
     <h1><center>Your Results</center></h1>
     <div class="content">
-      <ul>
-        <li><a href="recipeB.html"><p>Recipe1</p><p id="result"></p></a></li>
-        <!-- <li><a href="recipeB.html"><p>Recipe2</p></a></li>
-        <li><a href="recipeB.html"><p>Recipe3</p></a></li> -->
+      <p id="warning"></p>
+      <ul class="recipeLi" id="recipeList">
+        <!-- <li><a href="recipe.html"><p id="recipeName"></p><p id="tag"></p></a></li> -->
       </ul>
     </div>
 
-    <script type="text/javascript">
-  document.getElementById("result").innerHTML = localStorage.getItem("in1")+"+"+localStorage.getItem("in2")+"+"+localStorage.getItem("in3");
+ <!--    <script type="text/javascript">
+    var in_db = localStorage.getItem("inDatabase");
+    var in_db_array = in_db.split(",");
+    var i;
+    var tag = "";
+
+    for(i = 0; i < in_db_array.length; i++) {
+      console.log("current in: " + in_db_array[i]);
+      tag = tag + " #" + in_db_array[i];
+
+    }
+    document.getElementById("tag").innerHTML = tag;
+    
+  </script> -->
+   <!--  <script type="text/javascript">
+
+
+    for(i = 0; i < ingredientLi.length; i++) {
+      tag = tag + " #" + ingredientLi[i];
+
+    }
+    document.getElementById("tag").innerHTML = tag;
+    
+  </script> -->
+
+  <script type="text/javascript">
+        // var finalResult = "";
+        // for(i=0; i<search_r.length; i++){
+        //   finalResult = finalResult + search_r[i];
+        // }
+        for(i=0; i<search_r.length; i++){
+          var li = document.createElement("li");
+          var a = document.createElement("a");
+          a.href = "recipe.html";
+          var inputName = search_r[i];
+          var t = document.createTextNode(inputName);
+          var p = document.createElement("p");
+          var p2 = document.createElement("p");
+          var inputIng = ingredientLi;
+          var t2 = document.createTextNode(inputIng);
+          p.appendChild(t);
+          li.appendChild(a).appendChild(p);
+          li.appendChild(a).appendChild(p2);
+
+
+  
+          document.getElementById("recipeList").appendChild(li);
+        }
+        if(search_r.length===0){
+          var warning = "Sorry! No results.";
+          document.getElementById("warning").innerHTML = warning;
+        }
+        // document.getElementById("recipeName").innerHTML = finalResult;
+
   </script>
+
 
     <div class="nav">
       <div class="back">
         <a href="toolsB.html">
-          <p>Back</p>
+          <p><img src="image/back.png" width="70px"></p>
         </a>
+      </div> 
+     <div class="home">
+          <a href="project.html">
+            <p><img src="image/home.png" width="80px"></p>
+          </a>
       </div>  
     </div>
     <div id="data"></div>

@@ -19,10 +19,14 @@
 			text-align: center;
 			font-size: 50px;
 			font-family: arial;
+			color: #86b332;
+			font-weight: normal;
+
 		}
 		.title{
 			width: 1000px;
 			height: 60px;
+			margin-top: 80px;
 		}
 		.content{
 			width: 900px;
@@ -36,9 +40,10 @@
 			width: 150px;
 			height: 200px;
 			margin-top: 100px;
-			background: grey;
+			/*background: #c7c7c7;*/
 			margin-left: 60px;
 			float: left;
+			border-radius: 25px;
 		}
 		.content p{
 			color: white;
@@ -49,7 +54,7 @@
 			height: 130px;
 			/*background: red;*/
 			margin:auto;
-			background: #eee;
+			background: white;
 			position: fixed;
 	      	top: auto;
 	      	right: 0;
@@ -110,7 +115,7 @@
 						q = "0"+p.toString();
 					}
 					if(color[i] === "1"){
-						$("#tool"+q).css('background', 'grey');
+						$("#tool"+q).css('background', '#b1b1b1');
 					} else if(color[i] === "2") {
 						$("#tool"+q).css('background', '#86b332');
 					}
@@ -134,7 +139,7 @@
 		        			$(this).css('background', '#86b332');
 		        			color[Number(number)] = "2";
 		    			} else if(color[Number(number)]=="2"){
-		        			$(this).css('background', 'grey');
+		        			$(this).css('background', '#b1b1b1');
 		        			color[Number(number)] = "1";
 		    			}
 		    				console.log(color);
@@ -156,13 +161,13 @@
 	</div>
 	<div class="content">
 		<div id="tool01"><img src="image/stove.png"><p id="1">Stove</p></div>
-		<div id="tool02"><img src="image/micro.png"><p id="2">Oven</p></div>
+		<div id="tool02"><img src="image/oven.png"><p id="2">Oven</p></div>
 		<div id="tool03"><img src="image/blender.png"><p id="3">Blender</p></div>
-		<div id="tool04"><img src="image/pressure.png"><p id="4">Rice Cooker</p></div>
+		<div id="tool04"><img src="image/rice-cooker.png"><p id="4">Rice Cooker</p></div>
 		<div id="tool05"><img src="image/steamer.png"><p id="5">Steamer</p></div>
 		<div id="tool06"><img src="image/micro.png"><p id="6">Microwave</p></div>
 		<div id="tool07"><img src="image/pressure.png"><p id="7">Pressure Cooker</p></div>
-		<div id="tool08"><img src="image/knives.png"><p id="8">Knife</p></div>
+		<div id="tool08"><img src="image/knifes.png"><p id="8">Knife</p></div>
 		<div id="tool09"><img src="image/cleaver.png"><p id="9">Cutting Board</p></div>
 		<div id="tool10"><img src="image/frying-pan.png"><p id="10">Fry Pan</p></div>
 		<div id="tool11"><img src="image/pot.png"><p id="11">Pot</p></div>
@@ -172,23 +177,21 @@
 		<div id="tool15"><img src="image/strainer.png"><p id="15">Strainer</p></div>
 		<div id="tool16"><img src="image/measuring-spoons.png"><p id="16">Measuring Spoons</p></div>	
 	</div>
-	<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-	<div>Icons made by <a href="https://www.flaticon.com/authors/catkuro" title="catkuro">catkuro</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
 	<div class="nav">
 		<div class="back">
 			<a href="ingredient.html">
-				<p>Back</p>
+				<p><img src="image/back.png" width="70px"></p>
 			</a>
 		</div>
 		<div class="home">
           <a href="home.html">
-            <p>Home</p>
+            <p><img src="image/home.png" width="80px"></p>
           </a>
       </div> 
 		<div class="next">
 			<a href="results.html" onclick="output_recipe(search_r);getTools()">
-				<p>Next</p>
+				<p><img src="image/next.png" width="70px"></p>
 			</a>
 		</div>
 	</div>
