@@ -55,23 +55,29 @@
       text-decoration: none;
       color: black;
     }
-   h1{
+    h1{
       text-align: center;
       font-size: 50px;
       font-family: arial;
+      color: #86b332;
+      font-weight: normal;
     }
     .content p{
-      font-size: 25px;
+      font-size: 27px;
       font-family: arial;
+
     }
     ul{
       list-style: none;
   
     }
+    ul p{
+      color: white;
+    }
     li{
       padding: 3px 15px 3px 20px;
       margin-top: 10px;
-      background: #eee;
+      background: #86b332;
     }
     .content{
       margin-top: 50px;
@@ -137,12 +143,12 @@
           var inputName = search_r[i];
           var t = document.createTextNode(inputName);
           var p = document.createElement("p");
-          var p2 = document.createElement("p");
-          var inputIng = ingredientLi;
-          var t2 = document.createTextNode(inputIng);
+          // var p2 = document.createElement("p");
+          // var inputIng = ingredientLi;
+          // var t2 = document.createTextNode(inputIng);
           p.appendChild(t);
           li.appendChild(a).appendChild(p);
-          li.appendChild(a).appendChild(p2);
+          // li.appendChild(a).appendChild(p2);
 
 
   

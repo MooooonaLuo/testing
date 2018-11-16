@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript" src="data.js"></script>
   <style>
 
   .account{
@@ -72,9 +73,30 @@
   <h1><center>Favorite<center></h1>
   <br><br><br><br>
   <div class="content">
-    <ul>
-      <li><a href="recipe.html">First Recipe</a></li>
+    <ul id="recipeList">
     </ul>
+    <script type="text/javascript">
+      var li = document.createElement("li");
+          
+          var a = document.createElement("a");
+          a.href = "recipe.html";
+          var inputName = search_r[0];
+          var t = document.createTextNode(inputName);
+          var p = document.createElement("p");
+          li.onclick = function(){
+            localStorage.recipeChosen = JSON.stringify(inputName);
+          }
+          // var p2 = document.createElement("p");
+          // var inputIng = ingredientLi;
+          // var t2 = document.createTextNode(inputIng);
+          p.appendChild(t);
+          li.appendChild(a).appendChild(p);
+          // li.appendChild(a).appendChild(p2);
+
+
+  
+          document.getElementById("recipeList").appendChild(li);
+    </script>
   </div>
   <div class="nav">
     <div class="back">
