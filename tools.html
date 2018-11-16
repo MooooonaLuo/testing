@@ -102,6 +102,16 @@
 			color = [];
 			for(i = 0; i < 16; i++){
 				color[i] = m;
+				var p = i+1;
+					var q = p.toString();
+					if(p<10){
+						q = "0"+p.toString();
+					}
+					if(color[i] === "1"){
+						$("#tool"+q).css('background', '#b1b1b1');
+					} else if(color[i] === "2") {
+						$("#tool"+q).css('background', '#86b332');
+					}
 			}
 			// localStorage.setItem('colorData', JSON.stringify(color));
 		} else {
