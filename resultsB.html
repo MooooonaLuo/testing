@@ -55,7 +55,7 @@
       text-decoration: none;
       color: black;
     }
-    h1{
+   h1{
       text-align: center;
       font-size: 50px;
       font-family: arial;
@@ -94,7 +94,8 @@
     </style>
   </head>
   <body>
-    <div class="login">
+    
+     <div class="login">
         <a href="signup.html"><button type="button">Sign up</button></a>&nbsp;
         <a href="login.html"><button type="button">Log in</button></a>
     </div>
@@ -138,11 +139,15 @@
         // }
         for(i=0; i<search_r.length; i++){
           var li = document.createElement("li");
+          
           var a = document.createElement("a");
-          a.href = "recipe.html";
+          a.href = "recipeB.html";
           var inputName = search_r[i];
           var t = document.createTextNode(inputName);
           var p = document.createElement("p");
+          li.onclick = function(){
+            localStorage.recipeChosen = JSON.stringify(inputName);
+          }
           // var p2 = document.createElement("p");
           // var inputIng = ingredientLi;
           // var t2 = document.createTextNode(inputIng);
