@@ -86,11 +86,21 @@
         .detail p{
           font-size: 12px;
           font-family: arial;
-          margin-left: 50px;
+          
         }
         .detail{
           margin-bottom: 150px;
         }
+        li{
+          list-style: none;
+          font-family: arial;
+          font-size: 12px;
+        }
+        #nutrition{
+          font-family: arial;
+          font-size: 12px;
+        }
+
         button[type="button"]{outline: none;}
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -110,27 +120,27 @@
     </div>
     <!-- function of "like" button -->
     <script type="text/javascript">
-        var m = 1;
+        var count = 1;
         $(document).ready(function(){
           $("#likeBt").click(function(){
     
-              if(m===1){
+              if(count===1){
                   $(this).css('background', "url('image/liked.png')");
                   $(this).css('background-repeat','no-repeat');
                   $(this).css('background-position','center center');
-                  m=2;
-              }else if(m===2){
+                  count=2;
+              }else if(count===2){
                   $(this).css('background', "url('image/like.png')");
                   $(this).css('background-repeat','no-repeat');
                   $(this).css('background-position','center center');
-                  m=1;
+                  count=1;
               }
           });
         });
 
     </script>
     <div class="detail">
-      <p><br/>Ingredients:</p>
+      <p style="color: #86b332;"><br/>Ingredients:</p>
       <!-- ingredient list -->
       <ul class="ingre" id="ingredient">
           <!-- 1 pound Beef <br/>
@@ -138,13 +148,13 @@
           1 Egg -->
           
       </ul>
-      <p><br/><br/>Directions:</p>
-      <ul id="directions">
+      <p style="color: #86b332;"><br/><br/>Directions:</p>
+      <p id="directions">
           <!-- Step 1: <br/>Chop the beef and put them in boiling water for 2 minutes <br/><br/>
           Step 2: <br/>Put one spoon of soy sauce in a fry pan <br/><br/>
           Step 3: <br/>Put beef into the fry pan and stir them for 5 minutes -->
-      </ul>
-      <p>Nutrition:</p>
+      </p>
+      <p style="color: #86b332;"><br/>Nutrition:</p>
       <ul id="nutrition"></ul>
     </div>
 
