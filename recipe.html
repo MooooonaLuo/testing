@@ -161,22 +161,22 @@
     </div>
 
     <script type="text/javascript">
-      var title = JSON.parse(localStorage.getItem('recipeChosen'));
+      var title = localStorage.getItem('recipeChosen');
       var titleSt = title.toString();
 
-      for (var a=0; a<allRecipe.length; a++){
-        if(allRecipe[a]["title"]===titleSt){
-          document.getElementById("title").innerHTML = allRecipe[a]["title"];
-          for (var b=0; b<allRecipe[a]["ingredient"].length; b++){
+      for (var a=0; a<data.length; a++){
+        if(data[a]["title"]===titleSt){
+          document.getElementById("title").innerHTML = data[a]["title"];
+          for (var b=0; b<data[a]["ingredient"].length; b++){
             var m = document.createElement("li");
-            var t = allRecipe[a]["ingredient"][b];
+            var t = data[a]["ingredient"][b];
             var text = document.createTextNode(t);
             m.appendChild(text);
             document.getElementById("ingredient").appendChild(m);
           }
-          for (var b=0; b<allRecipe[a]["directions"].length; b++){
+          for (var b=0; b<data[a]["directions"].length; b++){
             var m = document.createElement("li");
-            var t = allRecipe[a]["directions"][b];
+            var t = data[a]["directions"][b];
             var text = document.createTextNode(t);
 
             var s = document.createElement("p");
@@ -190,33 +190,56 @@
             
             document.getElementById("directions").appendChild(m);
           }
-            var m = allRecipe[a]["nutrition"];
+            var m = data[a]["nutrition"];
             var n = document.createTextNode(m)
             document.getElementById("nutrition").appendChild(n);
           
-            var src = "image/"+allRecipe[a]["image"];
+            var src = "image/"+data[a]["image"];
             document.getElementById("image").src = src;
         }
       }
 
 
-      var count = 1;
 
-        $(document).ready(function(){
+      $(document).ready(function(){
+      var count = 0;
+      // var checkFavorite = JSON.parse(localStorage.getItem('favorite'));
+      // console.log(checkFavorite);
+      if(localStorage.getItem('favorite')==null){
+        count = 0;
+      } else {
+        var checkFavorite = JSON.parse(localStorage.getItem('favorite'));
+        for(var i=0; i<checkFavorite.length; i++){
+          if(checkFavorite[i]==title){
+            count = 1;
+          }
+        }
+      }
+  
+        if(count==1){
+                    $("#likeBt").css('background', "url('image/liked.png')");
+                    $("#likeBt").css('background-repeat','no-repeat');
+                    $("#likeBt").css('background-position','center center');
+                }else if(count==0){
+                    $("#likeBt").css('background', "url('image/like.png')");
+                    $("#likeBt").css('background-repeat','no-repeat');
+                    $("#likeBt").css('background-position','center center');
+                }
+
+        // $(document).ready(function(){
           $("#likeBt").click(function(){
-
-              if(count===1){
+              if(count==0){
                   $(this).css('background', "url('image/liked.png')");
                   $(this).css('background-repeat','no-repeat');
                   $(this).css('background-position','center center');
-                  count=2;
-                  localStorage.liked = title;
-              }else if(count===2){
+                  count=1;
+                  addFavorite();
+              }else if(count==1){
                   $(this).css('background', "url('image/like.png')");
                   $(this).css('background-repeat','no-repeat');
                   $(this).css('background-position','center center');
-                  count=1;
-                  localStorage.removeItem("liked");
+                  count=0;
+                  removeFavorite();
               }
           });
         });
@@ -226,7 +249,7 @@
 
     <div class="nav">
         <div class="back">
-          <a href="results.html">
+          <a href="javascript:history.back()">
             <p><img src="image/back.png" width="70px"></p>
           </a>
         </div> 

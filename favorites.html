@@ -2,6 +2,7 @@
 <html>
 <head>
 <script type="text/javascript" src="data.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <style>
 
   .account{
@@ -73,6 +74,14 @@
       p{
         font-family: arial;
       }
+       .close {
+      margin-left: 300px;
+      }
+      #warning{
+        color: black;
+        font-size: 30px;
+        text-align: center;
+      }
   </style>
 </head>
 <body>
@@ -81,16 +90,73 @@
   </div>
 
   <br>
-  <h1><center>Favorite<center></h1>
+  <h1><center>Favorites<center></h1>
   <br><br><br><br>
   <div class="content">
+    <p id="warning"></p>
     <ul id="recipeList">
     </ul>
     <script type="text/javascript">
-    var check = localStorage.getItem("liked");
-    if(!(check===null)){
-      addRecipe();
-    }
+    // var check = localStorage.getItem("liked");
+    // if(!(check===null)){
+    //   addRecipe();
+      $(document).ready(function(){
+        var checkFavorite = JSON.parse(localStorage.getItem('favorite'));
+        console.log(checkFavorite);
+        if(checkFavorite == null || checkFavorite.length==0){
+          var warning = "You haven't added any recipes to your favorites!";
+          document.getElementById("warning").innerHTML = warning;
+        } else {
+          for(var i=0; i<checkFavorite.length; i++){
+            var li = document.createElement('li');
+            li.className = "favorite"
+            var t = checkFavorite[i];
+            var text = document.createTextNode(t);
+            li.id = "fav" + i;
+            var a = document.createElement('a');
+            a.href = "recipe.html";
+
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+
+            li.onclick = function(){
+            localStorage.recipeChosen = t;
+            }
+            li.appendChild(a).appendChild(text);
+            li.appendChild(span);
+            document.getElementById('recipeList').appendChild(li);
+          }
+        }
+
+        var close = document.getElementsByClassName("close");
+        var n;
+        for (n = 0; n < close.length; n++) {
+          close[n].onclick = function() {
+            if(close.length==1){
+               localStorage.recipeChosen = JSON.stringify(checkFavorite[0]);
+               var div = this.parentElement;
+               div.remove();
+               var e = [];
+               localStorage.favorite = JSON.stringify(e);
+            } else {
+                var div = this.parentElement;
+                div.remove();
+                checkFavorite.splice(0,1);
+                localStorage.favorite = JSON.stringify(checkFavorite);
+              }
+          }
+        }
+        var list = document.getElementsByClassName("favorite");
+        for(var m=0; m<list.length; m++){
+          list[m].onclick = function(){
+            var number = this.id[3];
+            localStorage.recipeChosen = checkFavorite[number];
+          }
+        }
+
+      });
 
     
     // var number = JSON.parse(localStorage.getItem("number"));
@@ -114,7 +180,7 @@
   </div>
   <div class="nav">
     <div class="back">
-      <a href="javascript:history.back()">
+      <a href="account.html">
         <p><img src="image/back.png" width="70px"></p>
       </a>
     </div>

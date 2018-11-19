@@ -145,13 +145,9 @@
           var inputName = search_r[i];
           var t = document.createTextNode(inputName);
           var p = document.createElement("p");
-          li.onclick = function(){
-            localStorage.recipeChosen = JSON.stringify(inputName);
-            localStorage.number = i-1;
-          }
-          // var p2 = document.createElement("p");
-          // var inputIng = ingredientLi;
-          // var t2 = document.createTextNode(inputIng);
+          p.className = "results";
+          p.id = "result" + i;
+
           p.appendChild(t);
           li.appendChild(a).appendChild(p);
           // li.appendChild(a).appendChild(p2);
@@ -160,6 +156,17 @@
   
           document.getElementById("recipeList").appendChild(li);
         }
+
+var list = document.getElementsByClassName("results");
+        for(var m=0; m<list.length; m++){
+          list[m].onclick = function(){
+            var number = this.id[6];
+            console.log(search_r[number]);
+            localStorage.recipeChosen = search_r[number];
+          }
+        }
+
+
         if(search_r.length===0){
           var warning = "Sorry! No results.";
           document.getElementById("warning").innerHTML = warning;

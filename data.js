@@ -90,22 +90,50 @@ var data = [
   var search_r = searching(inputs);
   var allRecipe = output_recipe(search_r);
 
-  function addRecipe(){
-    var number = JSON.parse(localStorage.getItem("number"));
+  // function addRecipe(){
+  //   var number = JSON.parse(localStorage.getItem("number"));
 
-      var li = document.createElement("li");
+  //     var li = document.createElement("li");
           
-          var a = document.createElement("a");
-          a.href = "recipe.html";
-          var inputName = search_r[number];
-          var t = document.createTextNode(inputName);
-          var p = document.createElement("p");
-          li.onclick = function(){
-            localStorage.recipeChosen = JSON.stringify(inputName);
-          }
-          p.appendChild(t);
-          li.appendChild(a).appendChild(p);
+  //         var a = document.createElement("a");
+  //         a.href = "recipe.html";
+  //         var inputName = search_r[number];
+  //         var t = document.createTextNode(inputName);
+  //         var p = document.createElement("p");
+  //         li.onclick = function(){
+  //           localStorage.recipeChosen = JSON.stringify(inputName);
+  //         }
+  //         p.appendChild(t);
+  //         li.appendChild(a).appendChild(p);
   
 
-          document.getElementById("recipeList").appendChild(li);
+  //         document.getElementById("recipeList").appendChild(li);
+  // }
+
+  var test = JSON.parse(localStorage.getItem('favorite'))
+  if(test===null){
+      var favoriteLi = [];
+    } else {
+      favoriteLi = test;
+    }
+
+  function addFavorite(){
+    var count = 0;
+    for(var i=0; i<favoriteLi.length; i++){
+      if(!(title === favoriteLi[i])){
+          count++;
+      }
+    }
+    if(count === favoriteLi.length){
+          favoriteLi.push(title);
+      }
+    localStorage.favorite = JSON.stringify(favoriteLi);
+  }
+  function removeFavorite(){
+    for(var i=0; i<favoriteLi.length; i++){
+      if(title === favoriteLi[i]){
+        favoriteLi.splice(i, i+1);
+      }
+    }
+    localStorage.favorite = JSON.stringify(favoriteLi);
   }
