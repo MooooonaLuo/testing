@@ -119,6 +119,7 @@
             var span = document.createElement("SPAN");
             var txt = document.createTextNode("\u00D7");
             span.className = "close";
+            span.id = "close"+i;
             span.appendChild(txt);
 
             li.onclick = function(){
@@ -135,15 +136,17 @@
         for (n = 0; n < close.length; n++) {
           close[n].onclick = function() {
             if(close.length==1){
-               localStorage.recipeChosen = JSON.stringify(checkFavorite[0]);
+               localStorage.recipeChosen = JSON.stringify(checkFavorite[1]);
                var div = this.parentElement;
                div.remove();
                var e = [];
                localStorage.favorite = JSON.stringify(e);
             } else {
+                var num = this.id[5];
+                var num2 = num+1;
                 var div = this.parentElement;
                 div.remove();
-                checkFavorite.splice(0,1);
+                checkFavorite.splice(num,num2);
                 localStorage.favorite = JSON.stringify(checkFavorite);
               }
           }
