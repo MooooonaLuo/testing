@@ -6,22 +6,7 @@
     <meta charset="utf-8">
     <script type="text/javascript" src="data.js"></script>
     <style>
-     .account{
-      width: 1000px;
-      height: 150px;
-      /*background: red;*/
-      margin:0px auto;
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: auto;
-      background: white;
-      }
-      .account img{
-        float: right;
-        margin-right: 20px;
-      }
+
       h1{
         margin-top: 200px;
         font-family: arial;
@@ -39,10 +24,10 @@
           margin:auto;
           background: white;
           position: fixed;
-          top: auto;
+          top: 0;
           right: 0;
           left: 0;
-          bottom: 0;
+          bottom: auto;
           }
         .nav div{
           width: 150px;
@@ -89,8 +74,9 @@
           
         }
         .detail{
-          margin-bottom: 150px;
+          margin-bottom: 30px;
         }
+        
         li{
           list-style: none;
           font-family: arial;
@@ -107,9 +93,7 @@
   </head>
 
   <body>
-    <div class="account">
-          <a href="account.html"><img src="image/account.png" width="15%"></a>
-    </div>
+
         <!-- Title of Recipe -->
         <h1 id="title">Generic Recipe Placeholder</h1>
     <!-- picture of recipe -->
@@ -168,11 +152,13 @@
         if(data[a]["title"]===titleSt){
           document.getElementById("title").innerHTML = data[a]["title"];
           for (var b=0; b<data[a]["ingredient"].length; b++){
-            var m = document.createElement("li");
             var t = data[a]["ingredient"][b];
+            if(!(t == "Stove") && !(t == "Oven") && !(t == "Blender") && !(t == "Rice Cooker") && !(t == "Steamer") && !(t == "Microwave") && !(t == "Pressure Cooker") && !(t == "Knife") && !(t == "Cutting Board") &&!(t == "Fry Pan") && !(t == "Pot") && !(t == "Scale") && !(t == "Measuring Cup") && !(t == "Mixer") && !(t == "Strainer") && !(t == "Measuring Spoons") ){
+            var m = document.createElement("li");
             var text = document.createTextNode(t);
             m.appendChild(text);
             document.getElementById("ingredient").appendChild(m);
+            }
           }
           for (var b=0; b<data[a]["directions"].length; b++){
             var m = document.createElement("li");
