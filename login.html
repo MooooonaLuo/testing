@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script type="text/javascript" src="data.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <style>
   h1{
     margin-top: 400px;
@@ -30,39 +32,16 @@
       text-decoration: none;
       color: black;
     }
-    .nav{
-      height: 130px;
-      /*background: red;*/
-      margin:auto;
-      background: white;
-      position: fixed;
-      top: auto;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      }
-    .nav div{
-      width: 150px;
-      height: 50px;
-      float: left;
-    }
-    .next{
-      margin-left: 700px;
-    }
-    .nav div p{
-      text-align: center;
-      font-size: 40px;
-      font-family: arial;
-    }
+
     input[type=text]{
       border-radius: 15px;
-      font-size: 50px;
+      font-size: 40px;
       border: 2px solid #ccc;
     }
 
      input[type=Password]{
       border-radius: 15px;
-      font-size: 50px;
+      font-size: 40px;
       border: 2px solid #ccc;
     }
     em{
@@ -77,25 +56,50 @@
       border: #86b332;
       border-radius: 15px;
     }
+    #error{
+      color: white;
+    }
   </style>
 </head>
 <body>
   <h1>Log In</h1>
   <form>
-   <br>
-    <p class="title">Username</p>
-    <input type="text" value="">
+   <br/>
+    <p class="title">Username:</p>
+    <input type="text" id="username" value="">
     <br>
     <p class="title"> Password:</p>
-    <input type="Password" value="">
+    <input type="Password" id="password" value="">
+    <p id="error">space</p>
     <br/>
-    <br/>
+
   <a href="signup.html"><p>Don't have an account? <em>Sign up here.</em></p></a>
   <div class="login">
     
     <br/>
-    <a href="home.html"><button type="button">log&nbsp;in</button></a>
+    <button onclick="myFunction()" type="button">log&nbsp;in</button>
   </div>
   </form>
+  <script type="text/javascript">
+  function myFunction(){
+    var usernameInput = document.getElementById("username").value;
+    var passwordInput = document.getElementById("password").value;
+    if(usernameInput == account[0].username && passwordInput == account[0].password){
+      location.href = "home.html";
+    } else if(usernameInput == "" || passwordInput == ""){
+      var error1 = "Please complete the form.";
+      document.getElementById("error").innerHTML = error1;
+      $("#error").css('color', 'red');
+    }else if(usernameInput == account[0].username && !(passwordInput == account[0].password)){
+      var error2 = "Your password is incorrect. Please retry.";
+      document.getElementById("error").innerHTML = error2;
+      $("#error").css('color', 'red'); 
+    } else {
+      var error3 = "The username does not exist. Please retry.";
+      document.getElementById("error").innerHTML = error3;
+      $("#error").css('color', 'red');
+    }
+  }
+  </script>
 </body>
 </html>
