@@ -9,134 +9,138 @@ var data = [
   {"image" : "Beer Lime Grilled Chicken.jpg", "title" : "Beer Lime Grilled Chicken", "ingredient" : ["lime" , "beer", "cilantro", "pepper", "chicken breast", "Oven"], "directions" : ["In a bowl, mix the lime juice, beer, honey, garlic, cilantro, and salt and pepper until the honey dissolves. Pour the mixture over the chicken, cover and marinate for 30 minutes.", "Preheat an outdoor grill for medium heat and lightly oil grate.", "Remove chicken from marinade and shake off excess; discard remaining marinade. Grill chicken until tender and juices run clear, about 7 minutes per side."], "nutrition" : "Per Serving: 182 calories; 2.9 g fat; 7 g carbohydrates; 25.2 g protein; 67 mg cholesterol; 63 mg sodium."},
   {"image" : "Zuchini Boats on the Grill.jpg", "title" : "Zucchini Boats on the Grill", "ingredient" : ["zucchini", "white bread", "bacon", "olive", "jalapeno", "onion", "tomato", "Knife", "Stove", "Pot"], "directions" : ["Prepare the grill for indirect heat.", "Place the zucchini in a pot with enough water to cover. Bring to a boil, and cook 5 minutes. Drain, cool, and cut in half lengthwise. Scoop out the pulp to about 1/4 inch from the skin. Chop pulp.", "In a bowl, mix the zucchini pulp, bread pieces, bacon bits, olives, jalapeno, green chile peppers, onion, tomato, and Cheddar cheese. Season with basil, seasoned salt, and pepper.", "Stuff the zucchini halves with the pulp mixture. Seal each stuffed half in aluminum foil.", "Place foil packets on the prepared grill over indirect heat. Cook 15 to 20 minutes, until tender."], "nutrition" : "Per Serving: 120 calories; 6.3 g fat; 9 g carbohydrates; 8.2 g protein; 18 mg cholesterol; 502 mg sodium."},
   {"image" : "Braised Balsamic Chicken.jpg", "title" : "Braised Balsamic Chicken", "ingredient" : ["chicken breast", "onion", "tomato", "oregano", "Stove", "Pot"], "directions" : ["Season both sides of chicken breasts with garlic salt and pepper.", "Heat olive oil in a skillet over medium heat; cook seasoned chicken breasts until chicken is browned, 3 to 4 minutes per side. Add onion; cook and stir until onion is browned, 3 to 4 minutes.", "Pour diced tomatoes and balsamic vinegar over chicken; season with basil, oregano, rosemary and thyme. Simmer until chicken is no longer pink and the juices run clear, about 15 minutes. An instant-read thermometer inserted into the center should read at least 165 degrees F (74 degrees C)."], "nutrition" : "Per Serving: 196 calories; 7 g fat; 7.6 g carbohydrates; 23.8 g protein; 61 mg cholesterol; 511 mg sodium."},
-  {"image" : "Fluffy French Toast.jpg", "title" : "Fluffy French Toast", "ingredient" : ["egg", "bread", "cinnamon", "milk", "Stove", "Fry Pan"], "directions" : ["Measure flour into a large mixing bowl. Slowly whisk in the milk. Whisk in the salt, eggs, cinnamon, vanilla extract and sugar until smooth.", "Heat a lightly oiled griddle or frying pan over medium heat.", "Soak bread slices in mixture until saturated. Cook bread on each side until golden brown. Serve hot."], "nutrition" : "Per Serving: 123 calories; 2.7 g fat; 19.4 g carbohydrates; 4.8 g protein; 48 mg cholesterol; 230 mg sodium."}
+  {"image" : "Fluffy French Toast.jpg", "title" : "Fluffy French Toast", "ingredient" : ["egg", "bread", "cinnamon", "milk", "Stove", "Fry Pan"], "directions" : ["Measure flour into a large mixing bowl. Slowly whisk in the milk. Whisk in the salt, eggs, cinnamon, vanilla extract and sugar until smooth.", "Heat a lightly oiled griddle or frying pan over medium heat.", "Soak bread slices in mixture until saturated. Cook bread on each side until golden brown. Serve hot."], "nutrition" : "Per Serving: 123 calories; 2.7 g fat; 19.4 g carbohydrates; 4.8 g protein; 48 mg cholesterol; 230 mg sodium."},
+  {"image" : "", "title" : "Roasted Garlic Lemon Broccoli", "ingredient" : ["broccoli", "lemon juice", "Oven", "Knife"], "directions" : ["Preheat the oven to 400 degrees F (200 degrees C).", "In a large bowl, toss broccoli florets with the extra virgin olive oil, sea salt, pepper and garlic. Spread the broccoli out in an even layer on a baking sheet.", "Bake in the preheated oven until florets are tender enough to pierce the stems with a fork, 15 to 20 minutes. Remove and transfer to a serving platter. Squeeze lemon juice liberally over the broccoli before serving for a refreshing, tangy finish."], "nutrition" : "Per Serving: 49 calories; 1.9 g fat; 7 g carbohydrates; 2.9 g protein; 0 mg cholesterol; 326 mg sodium."},
+  {"image" : "", "title" : "Baked Asparagus with Balsamic Butter Sauce", "ingredient" : ["asparagus", "cooking spray", "butter", "soy sause", "balsamic vinegar", "Knife", "Oven"], "directions" : ["Preheat oven to 400 degrees F (200 degrees C).", "Arrange the asparagus on a baking sheet. Coat with cooking spray, and season with salt and pepper.", "Bake asparagus 12 minutes in the preheated oven, or until tender.", "Melt the butter in a saucepan over medium heat. Remove from heat, and stir in soy sauce and balsamic vinegar. Pour over the baked asparagus to serve."], "nutrition" : "Per Serving: 77 calories; 5.9 g fat; 4.9 g carbohydrates; 2.8 g protein; 15 mg cholesterol; 308 mg sodium."},
+  {"image" : "", "title" : ""}
 ]
 var account = [
   {"username" : "Doggy", "password": "Doggy123"}
 ]
- function searching(input)
- {
-     var result = new Array();
-     for(var x = 0; x < data.length; x++)
+
+function searching(input)
+{
+   var result = new Array();
+   for(var x = 0; x < data.length; x++)
+   {
+     if(data[x].ingredient.length > input.length)
      {
-       if(data[x].ingredient.length > input.length)
+       continue;
+     }
+     else
+     {
+       var flag = 0;
+       for(var z = 0; z < input.length; z++)
        {
+         for(var y = 0; y < data[x].ingredient.length; y++)
+         {
+           if(data[x].ingredient[y] === input[z])
+           {
+             flag += 1;
+             continue;
+           }
+         }
+       }
+       if(flag == data[x].ingredient.length)
+       {
+         result.push(data[x].title);
          continue;
        }
        else
        {
-         var flag = 0;
-         for(var z = 0; z < input.length; z++)
-         {
-           for(var y = 0; y < data[x].ingredient.length; y++)
-           {
-             if(data[x].ingredient[y] === input[z])
-             {
-               flag += 1;
-               continue;
-             }
-           }
-         }
-         if(flag == data[x].ingredient.length)
-         {
-           result.push(data[x].title);
-           continue;
-         }
-         else
-         {
-           continue;
-         }
+         continue;
        }
      }
-     return result;
+   }
+   return result;
  }
 
 
 
-  function output_recipe(input)
-  {
-    var result =[];
-    for (var i = 0; i < input.length; i++)
-    {
-      for (var j = 0; j < data.length; j++)
-      {
-        if (input[i] == data[j]["title"]) {
+ function output_recipe(input)
+ {
+   var result =[];
+   for (var i = 0; i < input.length; i++)
+   {
+     for (var j = 0; j < data.length; j++)
+     {
+       if (input[i] == data[j]["title"]) {
 
-          var output = data[j];
-          result.push(output);
+         var output = data[j];
+         result.push(output);
 
-        }
-      }
-    }
-    return result;
-  }
-
-
+       }
+     }
+   }
+   return result;
+ }
 
 
-  var in_db = localStorage.getItem("inDatabase");
-  var in_tool = localStorage.getItem("toolInput")
-  var in_db_array = in_db.split(",");
-  var in_tool_array = in_tool.split(",");
-  var inputs = new Array();
-  for (var p = 0; p < in_db_array.length + in_tool_array.length; p++)
-  {
-    if(p < in_db_array.length)
-    {
-      inputs.push(in_db_array[p]);
-    }
-    else
-    {
-      inputs.push(in_tool_array[p - in_db_array.length]);
-    }
-  }
-  var search_r = searching(inputs);
-  var allRecipe = output_recipe(search_r);
 
-  // function addRecipe(){
-  //   var number = JSON.parse(localStorage.getItem("number"));
 
-  //     var li = document.createElement("li");
-          
-  //         var a = document.createElement("a");
-  //         a.href = "recipe.html";
-  //         var inputName = search_r[number];
-  //         var t = document.createTextNode(inputName);
-  //         var p = document.createElement("p");
-  //         li.onclick = function(){
-  //           localStorage.recipeChosen = JSON.stringify(inputName);
-  //         }
-  //         p.appendChild(t);
-  //         li.appendChild(a).appendChild(p);
-  
+ var in_db = localStorage.getItem("inDatabase");
+ var in_tool = localStorage.getItem("toolInput")
+ var in_db_array = in_db.split(",");
+ var in_tool_array = in_tool.split(",");
+ var inputs = new Array();
+ for (var p = 0; p < in_db_array.length + in_tool_array.length; p++)
+ {
+   if(p < in_db_array.length)
+   {
+     inputs.push(in_db_array[p]);
+   }
+   else
+   {
+     inputs.push(in_tool_array[p - in_db_array.length]);
+   }
+ }
+ var search_r = searching(inputs);
+ var allRecipe = output_recipe(search_r);
 
-  //         document.getElementById("recipeList").appendChild(li);
-  // }
+ // function addRecipe(){
+ //   var number = JSON.parse(localStorage.getItem("number"));
 
-  var test = JSON.parse(localStorage.getItem('favorite'))
-  if(test===null){
-      var favoriteLi = [];
-    } else {
-      favoriteLi = test;
-    }
+ //     var li = document.createElement("li");
 
-  function addFavorite(){
-    var count = 0;
-    for(var i=0; i<favoriteLi.length; i++){
-      if(!(title === favoriteLi[i])){
-          count++;
-      }
-    }
-    if(count === favoriteLi.length){
-          favoriteLi.push(title);
-      }
-    localStorage.favorite = JSON.stringify(favoriteLi);
-  }
-  function removeFavorite(){
-    for(var i=0; i<favoriteLi.length; i++){
-      if(title === favoriteLi[i]){
-        favoriteLi.splice(i, i+1);
-      }
-    }
-    localStorage.favorite = JSON.stringify(favoriteLi);
-  }
+ //         var a = document.createElement("a");
+ //         a.href = "recipe.html";
+ //         var inputName = search_r[number];
+ //         var t = document.createTextNode(inputName);
+ //         var p = document.createElement("p");
+ //         li.onclick = function(){
+ //           localStorage.recipeChosen = JSON.stringify(inputName);
+ //         }
+ //         p.appendChild(t);
+ //         li.appendChild(a).appendChild(p);
+
+
+ //         document.getElementById("recipeList").appendChild(li);
+ // }
+
+ var test = JSON.parse(localStorage.getItem('favorite'))
+ if(test===null){
+   var favoriteLi = [];
+ } else {
+   favoriteLi = test;
+ }
+
+ function addFavorite(){
+   var count = 0;
+   for(var i=0; i<favoriteLi.length; i++){
+     if(!(title === favoriteLi[i])){
+       count++;
+     }
+   }
+   if(count === favoriteLi.length){
+     favoriteLi.push(title);
+   }
+   localStorage.favorite = JSON.stringify(favoriteLi);
+ }
+ function removeFavorite(){
+   for(var i=0; i<favoriteLi.length; i++){
+     if(title === favoriteLi[i]){
+       favoriteLi.splice(i, i+1);
+     }
+   }
+   localStorage.favorite = JSON.stringify(favoriteLi);
+ }
