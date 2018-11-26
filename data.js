@@ -26,7 +26,7 @@ var data = [
 ]
 
 var account = [
-  {"username" : "Doggy", "password": "Doggy123"}
+  {"username" : "Lok-tar", "password": "ogar!"}
 ]
 
 function searching(input)
