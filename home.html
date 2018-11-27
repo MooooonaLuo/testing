@@ -55,8 +55,13 @@
     </div>
      <br/>
     <div class="buttons">
-    <a href="login.html"><button class="main" type="button">Log Out</button></a>
+    <a href="login.html"><button class="main" type="button" onclick="removeIng()">Log Out</button></a>
     </div>
+    <script type="text/javascript">
+      function removeIng(){
+        localStorage.removeItem("inDatabase");
+      }
+    </script>
   </div>
 </body>
 </html>

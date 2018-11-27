@@ -61,7 +61,7 @@
       margin: 0;
       border: none;
       border-radius: 0;
-      width: 75%;
+      width: 100%;
       padding: 10px;
       float: left;
       font-size: 40px;
@@ -165,7 +165,7 @@
       <form autocomplete="off" action="/action_page.php">
         <div class="autocomplete" >
           <input type="text" id="myInput" placeholder="e.g. egg" value="">
-          <span onclick="newElement()" class="addBtn">Add</span>
+          <!-- <span onclick="newElement()" class="addBtn">Add</span> -->
         </div>
       </form>
   </div>
@@ -205,6 +205,7 @@ function autocomplete(inp, arr) {
           b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/
               inp.value = this.getElementsByTagName("input")[0].value;
+              newElement();
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();
@@ -331,6 +332,7 @@ autocomplete(document.getElementById("myInput"), countries);
     });
 
   </script>
+
    <script>
 
    function updateLocalStorage() {
