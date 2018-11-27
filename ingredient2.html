@@ -124,7 +124,7 @@
 
 
     .autocomplete-items {
-      width: 70%;
+      width: 94%;
       position: absolute;
       margin-left: 48px;
       border: 1px solid #d4d4d4;
@@ -132,7 +132,7 @@
       border-top: none;
       z-index: 99;
       /*position the autocomplete items to be the same width as the container:*/
-      top: 450px;
+      top: 430px;
       left: 0;
       right: 0;
     }
@@ -142,7 +142,8 @@
       cursor: pointer;
       background-color: #fff; 
       border-bottom: 1px solid #d4d4d4; 
-      font-size: 30px;
+      font-size: 40px;
+      font-family: arial;
     }
     .autocomplete-items div:hover {
       /*when hovering an item:*/
@@ -272,10 +273,10 @@ function autocomplete(inp, arr) {
 }
 
 /*An array containing all the country names in the world:*/
-var countries = ["asparagus","avocado","bacon","bread","beef","bell peper","Brussels sprout","broccoli","bamboo shoots","cheese","carrot","cinnamon","cabbage","cucumber","chicken","corn","cauliflower","cilantro","duck","egg","ginger", "green pepper","ham","kimchi","kale","lemon","lime","lamb","luncheon meat","lobster","lettuce","mushroom","milk","oyster","onion","pickle","pumpkin","pork","rice","salmon","tofu","tomato","turkey","zucchini"];
+var ingredients = ["asparagus","apple","avocado","bacon","bread","beer","butter","beef","bell peper","butternut", "black pepper","black bean","basil","brown sugar","burger bun","Brussels sprout","butternut squash","broccoli","bamboo shoots","cheese","corn","carrot","cinnamon","cabbage","cucumber","chicken","chicken breast","corn","cauliflower","cilantro","duck","egg","fillet","flour","ginger","garlic","green pepper","ham","honey","jalapeno","kimchi","kale","lemon","lime","lamb","luncheon meat","lobster","lettuce","mushroom","mustard","milk","oyster","onion","oregano","pickle","potato","parmesan cheese","pumpkin","pork","pepper","quinoa","rice","rosemary","red bell pepper","salmon","shrimp","sweet potato","soy sauce","tofu","tomato","turkey","thyme","vegetable broth","white bread","wine","zucchini"];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-autocomplete(document.getElementById("myInput"), countries);
+autocomplete(document.getElementById("myInput"), ingredients);
 </script>
 
 
@@ -289,7 +290,7 @@ autocomplete(document.getElementById("myInput"), countries);
 
   <script type="text/javascript">
     if(localStorage.inDatabase==null){
-    var defult = ["water"];
+    var defult = ["potato","bacon","onion"];
     localStorage.inDatabase = defult;
   }
 
